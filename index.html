@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Dra. Nicole Novaski - Fisioterapia Pélvica em Capão da Canoa. Atendimento especializado e humanizado para homens e mulheres. CREFITO 343131-F.">
+    <meta name="keywords" content="fisioterapia pélvica, capão da canoa, assoalho pélvico, incontinência urinária, Nicole Novaski">
+    <meta property="og:title" content="Dra. Nicole Novaski | Fisioterapia Pélvica">
+    <meta property="og:description" content="Atendimento especializado em Fisioterapia Pélvica em Capão da Canoa.">
+    <title>Dra. Nicole Novaski | Fisioterapia Pélvica</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primaria: #4a6355;
+            --primaria-escura: #344940;
+            --secundaria: #8fa890;
+            --destaque: #d4795a;
+            --destaque-hover: #c0664a;
+            --suave: #e8b49a;
+            --fundo: #f6f3ea;
+            --fundo-alt: #edeae0;
+            --texto: #2e3830;
+            --texto-suave: #6b7a6e;
+            --branco: #ffffff;
+            --sucesso: #25d366;
+            --sombra: rgba(74, 99, 85, 0.12);
+            --radius: 20px;
+        }
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--fundo);
+            color: var(--texto);
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            color: var(--primaria);
+            line-height: 1.2;
+        }
+
+        img { display: block; max-width: 100%; }
+
+        /* ─── REVEAL ─── */
+        .revelar {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+        }
+        .revelar.active { opacity: 1; transform: translateY(0); }
+
+        /* ─── HEADER ─── */
+        header {
+            background: var(--branco);
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 0 rgba(89,113,99,0.1), 0 4px 20px var(--sombra);
+        }
+
+        .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.45rem;
+            font-weight: 600;
+            color: var(--primaria);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .logo span { font-weight: 300; color: var(--secundaria); }
+
+        .header-info { text-align: right; }
+        .header-info .crefito {
+            font-size: 0.7rem;
+            color: var(--primaria);
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .header-info .especialidade {
+            font-size: 0.78rem;
+            color: var(--texto-suave);
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .nav-wpp {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--sucesso);
+            color: white;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 50px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(37,211,102,0.3);
+        }
+        .nav-wpp:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(37,211,102,0.4); }
+        .nav-wpp svg { flex-shrink: 0; }
+
+        /* ─── HERO ─── */
+        #hero {
+            min-height: 92vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 0;
+            overflow: hidden;
+        }
+
+        .hero-texto {
+            padding: 80px 5% 80px 8%;
+            animation: fadeInLeft 1s ease-out both;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(74,99,85,0.1);
+            color: var(--primaria);
+            border-radius: 50px;
+            padding: 6px 16px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+        .hero-badge::before { content: ''; width: 8px; height: 8px; background: var(--destaque); border-radius: 50%; animation: piscar 2s infinite; }
+
+        @keyframes piscar { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+        .hero-texto h1 {
+            font-size: clamp(2.5rem, 4.5vw, 4rem);
+            color: var(--primaria-escura);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .hero-texto h1 em {
+            font-style: italic;
+            color: var(--destaque);
+        }
+
+        .hero-texto p {
+            font-size: 1.05rem;
+            color: var(--texto-suave);
+            max-width: 440px;
+            margin-bottom: 40px;
+            line-height: 1.75;
+        }
+
+        .hero-acoes { display: flex; gap: 16px; flex-wrap: wrap; align-items: center; }
+
+        .btn-principal {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: var(--destaque);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: 0.35s;
+            box-shadow: 0 8px 25px rgba(212,121,90,0.38);
+            animation: pulsar 2.5s infinite;
+            text-decoration: none;
+        }
+        .btn-principal:hover { background: var(--destaque-hover); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(212,121,90,0.45); }
+
+        @keyframes pulsar {
+            0%   { box-shadow: 0 0 0 0 rgba(212,121,90,0.4); }
+            70%  { box-shadow: 0 0 0 14px rgba(212,121,90,0); }
+            100% { box-shadow: 0 0 0 0 rgba(212,121,90,0); }
+        }
+
+        .btn-secundario {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 15px 28px;
+            background: transparent;
+            color: var(--primaria);
+            border: 1.5px solid var(--secundaria);
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.92rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .btn-secundario:hover { background: var(--primaria); color: white; border-color: var(--primaria); }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 50px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(89,113,99,0.15);
+        }
+        .stat-item { }
+        .stat-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            color: var(--primaria);
+            line-height: 1;
+        }
+        .stat-label { font-size: 0.78rem; color: var(--texto-suave); margin-top: 4px; }
+
+        .hero-imagem {
+            height: 92vh;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInRight 1s ease-out 0.3s both;
+        }
+        .hero-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .hero-imagem::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 120px; height: 100%;
+            background: linear-gradient(to right, var(--fundo), transparent);
+            z-index: 1;
+        }
+        .hero-imagem-badge {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--branco);
+            border-radius: 16px;
+            padding: 16px 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            z-index: 2;
+            min-width: 240px;
+        }
+        .badge-icon { font-size: 2rem; }
+        .badge-texto .badge-num {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primaria);
+            line-height: 1;
+        }
+        .badge-texto .badge-desc { font-size: 0.75rem; color: var(--texto-suave); }
+
+        @keyframes fadeInLeft { from{opacity:0;transform:translateX(-40px)} to{opacity:1;transform:translateX(0)} }
+        @keyframes fadeInRight { from{opacity:0;transform:translateX(40px)} to{opacity:1;transform:translateX(0)} }
+
+        /* ─── DIFERENCIAIS ─── */
+        #diferenciais {
+            background: var(--primaria);
+            padding: 60px 5%;
+        }
+        .diferenciais-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .diferencial-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 24px 30px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        .diferencial-item:last-child { border-right: none; }
+        .diferencial-icon { font-size: 1.8rem; flex-shrink: 0; }
+        .diferencial-texto strong {
+            display: block;
+            color: var(--branco);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .diferencial-texto span { color: rgba(255,255,255,0.6); font-size: 0.78rem; }
+
+        /* ─── SOBRE ─── */
+        #sobre {
+            padding: 110px 5%;
+            background: var(--branco);
+        }
+        .sobre-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.4fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .sobre-img-box {
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 30px 30px 0 var(--fundo-alt);
+        }
+        .sobre-img-box img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .sobre-img-box::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            border: 2px solid rgba(255,255,255,0.3);
+            pointer-events: none;
+        }
+
+        .sobre-texto .secao-tag {
+            display: inline-block;
+            color: var(--destaque);
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .sobre-texto h2 {
+            font-size: clamp(2rem, 3vw, 3rem);
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        .sobre-crefito {
+            color: var(--secundaria);
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 28px;
+            font-family: 'DM Sans', sans-serif;
+        }
+        .sobre-texto p {
+            color: var(--texto-suave);
+            margin-bottom: 18px;
+            font-size: 0.97rem;
+        }
+
+        .formacoes {
+            margin-top: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .formacao-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px;
+            background: var(--fundo);
+            border-radius: 12px;
+        }
+        .formacao-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+        .formacao-texto strong { display: block; font-size: 0.88rem; color: var(--texto); }
+        .formacao-texto span { font-size: 0.78rem; color: var(--texto-suave); }
+
+        /* ─── SERVIÇOS ─── */
+        #servicos {
+            padding: 110px 5%;
+            background: var(--fundo);
+        }
+        .secao-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        .secao-header .secao-tag {
+            display: inline-block;
+            color: var(--destaque);
+            font-weight: 600;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+        }
+        .secao-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.8rem);
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+        .secao-header p { color: var(--texto-suave); font-size: 0.95rem; }
+
+        .servicos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .card-servico {
+            background: var(--branco);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1.5px solid transparent;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-servico::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--destaque), var(--suave));
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+        .card-servico:hover { transform: translateY(-10px); border-color: rgba(212,121,90,0.2); box-shadow: 0 20px 50px rgba(74,99,85,0.12); }
+        .card-servico:hover::before { transform: scaleX(1); }
+
+        .card-icon { font-size: 2.8rem; margin-bottom: 20px; }
+        .card-servico h3 { font-size: 1.5rem; margin-bottom: 12px; font-weight: 600; }
+        .card-servico p { color: var(--texto-suave); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.7; }
+
+        .card-lista {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .card-lista li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.84rem;
+            color: var(--texto-suave);
+        }
+        .card-lista li::before { content: '✓'; color: var(--destaque); font-weight: 700; flex-shrink: 0; }
+
+        .card-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 28px;
+            color: var(--destaque);
+            font-weight: 600;
+            font-size: 0.88rem;
+            transition: gap 0.3s;
+        }
+        .card-servico:hover .card-cta { gap: 14px; }
+
+        /* ─── FAQ ─── */
+        #faq {
+            padding: 110px 5%;
+            background: var(--fundo-alt);
+        }
+        .faq-container { max-width: 750px; margin: 60px auto 0; display: flex; flex-direction: column; gap: 14px; }
+
+        details {
+            background: var(--branco);
+            border-radius: 14px;
+            border-left: 4px solid var(--secundaria);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        details[open] { box-shadow: 0 8px 30px var(--sombra); border-left-color: var(--destaque); }
+        details summary {
+            padding: 22px 24px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--texto);
+        }
+        details summary::-webkit-details-marker { display: none; }
+        details summary::after { content: '+'; font-size: 1.4rem; color: var(--destaque); font-weight: 300; transition: transform 0.3s; flex-shrink: 0; }
+        details[open] summary::after { transform: rotate(45deg); }
+        details .faq-resp {
+            padding: 0 24px 22px;
+            color: var(--texto-suave);
+            font-size: 0.9rem;
+            line-height: 1.75;
+            border-top: 1px solid var(--fundo-alt);
+            margin-top: -4px;
+        }
+
+        /* ─── CONTATO ─── */
+        #contato {
+            padding: 110px 5%;
+            background: var(--branco);
+        }
+        .contato-grid {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contato-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+        .contato-info p { color: var(--texto-suave); font-size: 0.93rem; margin-bottom: 32px; }
+
+        .contato-detalhes { display: flex; flex-direction: column; gap: 18px; }
+        .contato-item {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+        }
+        .contato-item-icon {
+            width: 46px; height: 46px;
+            background: var(--fundo);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .contato-item-texto strong { display: block; font-size: 0.8rem; color: var(--texto-suave); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+        .contato-item-texto span { font-size: 0.92rem; color: var(--texto); font-weight: 500; }
+
+        .container-form {
+            background: var(--fundo);
+            border-radius: var(--radius);
+            padding: 40px;
+            border: 1px solid rgba(89,113,99,0.1);
+        }
+        .container-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 28px;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .form-grupo { margin-bottom: 16px; }
+        .form-grupo label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--texto-suave);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 7px;
+        }
+        .form-grupo input,
+        .form-grupo select,
+        .form-grupo textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1.5px solid rgba(89,113,99,0.15);
+            background: var(--branco);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.93rem;
+            color: var(--texto);
+            transition: border-color 0.3s;
+            outline: none;
+        }
+        .form-grupo input:focus,
+        .form-grupo select:focus,
+        .form-grupo textarea:focus { border-color: var(--secundaria); }
+        .form-grupo textarea { resize: vertical; min-height: 90px; }
+
+        .btn-wpp {
+            width: 100%;
+            padding: 16px;
+            background: var(--sucesso);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            margin-top: 8px;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.3);
+        }
+        .btn-wpp:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(37,211,102,0.4); }
+
+        /* ─── FOOTER ─── */
+        footer {
+            background: var(--primaria-escura);
+            color: rgba(255,255,255,0.7);
+            padding: 60px 5% 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr;
+            gap: 50px;
+            max-width: 1100px;
+            margin: 0 auto 50px;
+        }
+        .footer-marca .logo { color: white; font-size: 1.2rem; margin-bottom: 12px; }
+        .footer-marca .logo span { color: rgba(255,255,255,0.4); }
+        .footer-marca p { font-size: 0.85rem; max-width: 280px; line-height: 1.75; }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 0.78rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-col ul li { font-size: 0.86rem; }
+        .footer-col ul a { color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.3s; }
+        .footer-col ul a:hover { color: white; }
+
+        .footer-bottom {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        /* ─── WPP FLUTUANTE ─── */
+        .wpp-flutuante {
+            position: fixed;
+            bottom: 28px;
+            right: 28px;
+            width: 58px; height: 58px;
+            background: var(--sucesso);
+            border-radius: 50%;
+            display: flex; justify-content: center; align-items: center;
+            z-index: 1000;
+            box-shadow: 0 6px 20px rgba(37,211,102,0.45);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+        .wpp-flutuante:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.55); }
+
+        /* ─── RESPONSIVO ─── */
+        @media (max-width: 900px) {
+            #hero { grid-template-columns: 1fr; min-height: auto; }
+            .hero-texto { padding: 60px 5%; order: 2; text-align: center; }
+            .hero-texto p { max-width: 100%; }
+            .hero-acoes { justify-content: center; }
+            .hero-stats { justify-content: center; }
+            .hero-imagem { height: 55vw; order: 1; }
+            .hero-imagem::before { display: none; }
+            .hero-imagem-badge { bottom: 20px; }
+
+            .sobre-container { grid-template-columns: 1fr; gap: 40px; }
+            .sobre-img-box img { height: 400px; }
+            .sobre-img-box { box-shadow: none; }
+
+            .contato-grid { grid-template-columns: 1fr; gap: 40px; }
+
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-marca { grid-column: 1 / -1; }
+
+            .diferencial-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); }
+            .diferencial-item:last-child { border-bottom: none; }
+        }
+
+        @media (max-width: 600px) {
+            .nav-wpp { display: none; }
+            .hero-stats { gap: 20px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { text-align: center; flex-direction: column; }
+            .hero-imagem-badge { min-width: auto; padding: 12px 18px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">NICOLE<span>NOVASKI</span></div>
+        <div class="header-info">
+            <p class="crefito">CREFITO 343131-F</p>
+            <p class="especialidade">Fisioterapia Pélvica</p>
+        </div>
+        <a href="https://wa.me/5551992147315" class="nav-wpp" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            WhatsApp
+        </a>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero">
+        <div class="hero-texto">
+            <div class="hero-badge">Capão da Canoa · RS</div>
+            <h1>Saúde Íntima para<br><em>Homens e Mulheres</em></h1>
+            <p>Atendimento especializado e humanizado em Fisioterapia Pélvica, focado na sua qualidade de vida e bem-estar.</p>
+            <div class="hero-acoes">
+                <button class="btn-principal" onclick="scrollToId('contato')">
+                    📅 Agendar Avaliação
+                </button>
+                <a href="#sobre" class="btn-secundario">Saiba mais →</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Atendimento humanizado</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">2</div>
+                    <div class="stat-label">Especializações clínicas</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">↑</div>
+                    <div class="stat-label">Qualidade de vida</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-imagem">
+            <img src="foto-nicole_jpeg.jpg" alt="Dra. Nicole Novaski — Fisioterapeuta Pélvica">
+            <div class="hero-imagem-badge">
+                <div class="badge-icon">🏆</div>
+                <div class="badge-texto">
+                    <div class="badge-num">CREFITO 343131-F</div>
+                    <div class="badge-desc">Fisioterapeuta registrada</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section id="diferenciais">
+        <div class="diferenciais-grid">
+            <div class="diferencial-item">
+                <div class="diferencial-icon">🎯</div>
+                <div class="diferencial-texto">
+                    <strong>Tratamento Personalizado</strong>
+                    <span>Protocolo exclusivo para cada paciente</span>
+                </div>
+            </div>
+            <div class="diferencial-item">
+                <div class="diferencial-icon">🤝</div>
+                <div class="diferencial-texto">
+                    <strong>Ambiente Acolhedor</strong>
+                    <span>Espaço seguro e sem julgamentos</span>
+                </div>
+            </div>
+            <div class="diferencial-item">
+                <div class="diferencial-icon">📍</div>
+                <div class="diferencial-texto">
+                    <strong>Capão da Canoa</strong>
+                    <span>Atendimento presencial no litoral gaúcho</span>
+                </div>
+            </div>
+            <div class="diferencial-item">
+                <div class="diferencial-icon">✅</div>
+                <div class="diferencial-texto">
+                    <strong>Especialista Certificada</strong>
+                    <span>Formação específica em saúde pélvica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="revelar">
+        <div class="sobre-container">
+            <div class="sobre-img-box">
+                <img src="foto-nicole_jpeg.jpg" alt="Dra. Nicole Novaski">
+            </div>
+            <div class="sobre-texto">
+                <span class="secao-tag">Quem sou eu</span>
+                <h2>Dra. Nicole Novaski</h2>
+                <p class="sobre-crefito">CREFITO 343131-F · Fisioterapia Pélvica</p>
+                <p>Fisioterapeuta dedicada à <strong>Fisioterapia Pélvica</strong> em Capão da Canoa, unindo ciência e acolhimento para o tratamento de disfunções do assoalho pélvico.</p>
+                <p>Acredito que cada pessoa merece um cuidado individualizado, baseado em evidências científicas e entregue com empatia. Meu objetivo é devolver qualidade de vida e confiança para meus pacientes.</p>
+                <div class="formacoes">
+                    <div class="formacao-item">
+                        <div class="formacao-icon">🎓</div>
+                        <div class="formacao-texto">
+                            <strong>Graduação em Fisioterapia</strong>
+                            <span>Formação em Fisioterapia com foco em saúde pélvica</span>
+                        </div>
+                    </div>
+                    <div class="formacao-item">
+                        <div class="formacao-icon">🔬</div>
+                        <div class="formacao-texto">
+                            <strong>Especialização em Fisioterapia Pélvica</strong>
+                            <span>Disfunções do assoalho pélvico masculino e feminino</span>
+                        </div>
+                    </div>
+                    <div class="formacao-item">
+                        <div class="formacao-icon">📍</div>
+                        <div class="formacao-texto">
+                            <strong>Atendimento em Capão da Canoa · RS</strong>
+                            <span>Presencial, com hora marcada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="revelar">
+        <div class="secao-header">
+            <span class="secao-tag">Especialidades</span>
+            <h2>Como posso te ajudar?</h2>
+            <p>Tratamento especializado para diferentes condições relacionadas ao assoalho pélvico.</p>
+        </div>
+        <div class="servicos-grid">
+            <div class="card-servico" onclick="preencherServico('Saúde Feminina')">
+                <div class="card-icon">🌸</div>
+                <h3>Saúde Feminina</h3>
+                <p>Cuidado especializado em todas as fases da vida da mulher, da gestação ao climatério.</p>
+                <ul class="card-lista">
+                    <li>Incontinência urinária</li>
+                    <li>Dores pélvicas crônicas</li>
+                    <li>Preparação e recuperação pós-parto</li>
+                    <li>Prolapsos genitais</li>
+                    <li>Disfunções sexuais femininas</li>
+                </ul>
+                <div class="card-cta">Agendar →</div>
+            </div>
+            <div class="card-servico" onclick="preencherServico('Saúde Masculina')">
+                <div class="card-icon">🛡️</div>
+                <h3>Saúde Masculina</h3>
+                <p>Suporte especializado para disfunções pélvicas masculinas, com abordagem acolhedora.</p>
+                <ul class="card-lista">
+                    <li>Pós-operatório de próstata</li>
+                    <li>Controle urinário</li>
+                    <li>Dor pélvica crônica</li>
+                    <li>Disfunção erétil (origem muscular)</li>
+                    <li>Ejaculação precoce</li>
+                </ul>
+                <div class="card-cta">Agendar →</div>
+            </div>
+            <div class="card-servico" onclick="preencherServico('Prevenção e Fortalecimento')">
+                <div class="card-icon">✨</div>
+                <h3>Prevenção & Fortalecimento</h3>
+                <p>Exercícios e orientações para fortalecer o assoalho pélvico e prevenir disfunções.</p>
+                <ul class="card-lista">
+                    <li>Exercícios de Kegel orientados</li>
+                    <li>Biofeedback perineal</li>
+                    <li>Orientações posturais</li>
+                    <li>Educação sobre saúde pélvica</li>
+                    <li>Prevenção de incontinência</li>
+                </ul>
+                <div class="card-cta">Agendar →</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="revelar">
+        <div class="secao-header">
+            <span class="secao-tag">Dúvidas frequentes</span>
+            <h2>Perguntas frequentes</h2>
+            <p>Algumas dúvidas comuns antes de iniciar o tratamento.</p>
+        </div>
+        <div class="faq-container">
+            <details>
+                <summary>O que é fisioterapia pélvica?</summary>
+                <div class="faq-resp">A fisioterapia pélvica é uma especialidade que trata disfunções dos músculos, nervos e estruturas do assoalho pélvico — a região que sustenta a bexiga, o intestino e os órgãos reprodutivos. É indicada tanto para homens quanto para mulheres.</div>
+            </details>
+            <details>
+                <summary>O atendimento é doloroso?</summary>
+                <div class="faq-resp">Não. O tratamento é realizado de forma gentil e respeitosa, sempre priorizando o conforto do paciente. Técnicas modernas e não-invasivas são utilizadas na maioria dos casos.</div>
+            </details>
+            <details>
+                <summary>Homens também podem fazer fisioterapia pélvica?</summary>
+                <div class="faq-resp">Sim! A fisioterapia pélvica é indicada para homens com incontinência urinária, dor pélvica crônica, disfunções sexuais e especialmente para quem realizou cirurgia de próstata.</div>
+            </details>
+            <details>
+                <summary>Quantas sessões são necessárias?</summary>
+                <div class="faq-resp">O número de sessões varia de acordo com cada condição e paciente. Em geral, os primeiros resultados aparecem entre 4 e 8 sessões. Um plano individualizado será elaborado na avaliação inicial.</div>
+            </details>
+            <details>
+                <summary>Preciso de encaminhamento médico?</summary>
+                <div class="faq-resp">Não é obrigatório, mas é recomendado. A fisioterapeuta pode atender sem encaminhamento, mas trabalhar em conjunto com seu médico potencializa os resultados do tratamento.</div>
+            </details>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="revelar">
+        <div class="secao-header">
+            <span class="secao-tag">Agendamento</span>
+            <h2>Solicitar avaliação</h2>
+            <p>Entre em contato para agendar sua consulta inicial.</p>
+        </div>
+        <div class="contato-grid">
+            <div class="contato-info">
+                <h3>Vamos conversar?</h3>
+                <p>Preencha o formulário ao lado e entraremos em contato pelo WhatsApp para confirmar o horário da sua avaliação inicial.</p>
+                <div class="contato-detalhes">
+                    <div class="contato-item">
+                        <div class="contato-item-icon">📱</div>
+                        <div class="contato-item-texto">
+                            <strong>WhatsApp</strong>
+                            <span>(51) 99214-7315</span>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-item-icon">📍</div>
+                        <div class="contato-item-texto">
+                            <strong>Localização</strong>
+                            <span>Capão da Canoa · RS</span>
+                        </div>
+                    </div>
+                    <div class="contato-item">
+                        <div class="contato-item-icon">⏰</div>
+                        <div class="contato-item-texto">
+                            <strong>Atendimento</strong>
+                            <span>Com hora marcada</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-form">
+                <h3>Agendar Consulta</h3>
+                <form id="wppForm">
+                    <div class="form-grupo">
+                        <label>Nome completo</label>
+                        <input type="text" id="nome" placeholder="Seu nome" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label>WhatsApp</label>
+                        <input type="tel" id="telefone" placeholder="(51) 99999-9999">
+                    </div>
+                    <div class="form-grupo">
+                        <label>Área de interesse</label>
+                        <select id="servico" required>
+                            <option value="" disabled selected>Selecione</option>
+                            <option value="Saúde Feminina">Fisioterapia Pélvica Feminina</option>
+                            <option value="Saúde Masculina">Fisioterapia Pélvica Masculina</option>
+                            <option value="Prevenção e Fortalecimento">Prevenção & Fortalecimento</option>
+                        </select>
+                    </div>
+                    <div class="form-grupo">
+                        <label>Mensagem (opcional)</label>
+                        <textarea id="mensagem" placeholder="Conte um pouco sobre sua queixa principal..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-wpp">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Enviar pelo WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-marca">
+                <div class="logo">NICOLE<span>NOVASKI</span></div>
+                <p>Fisioterapeuta especializada em saúde pélvica, oferecendo cuidado humanizado e baseado em evidências para homens e mulheres em Capão da Canoa.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Navegação</h4>
+                <ul>
+                    <li><a href="#sobre">Sobre mim</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Especialidades</h4>
+                <ul>
+                    <li><a href="#servicos">Saúde Feminina</a></li>
+                    <li><a href="#servicos">Saúde Masculina</a></li>
+                    <li><a href="#servicos">Prevenção Pélvica</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Dra. Nicole Novaski · CREFITO 343131-F · Capão da Canoa - RS</p>
+            <p>Desenvolvido com 💚</p>
+        </div>
+    </footer>
+
+    <!-- BOTÃO WPP FLUTUANTE -->
+    <a href="https://wa.me/5551992147315" class="wpp-flutuante" target="_blank" rel="noopener" title="Falar no WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <script>
+        // Scroll suave para seções
+        function scrollToId(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Preencher serviço e ir para contato
+        function preencherServico(servico) {
+            document.getElementById('servico').value = servico;
+            scrollToId('contato');
+        }
+
+        // Animação de reveal no scroll
+        function reveal() {
+            document.querySelectorAll('.revelar').forEach(el => {
+                const top = el.getBoundingClientRect().top;
+                if (top < window.innerHeight - 80) el.classList.add('active');
+            });
+        }
+        window.addEventListener('scroll', reveal, { passive: true });
+        reveal();
+
+        // Formulário → WhatsApp
+        document.getElementById('wppForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const fone = "5551992147315";
+            const nome = document.getElementById('nome').value.trim();
+            const serv = document.getElementById('servico').value;
+            const tel = document.getElementById('telefone').value.trim();
+            const msg = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !serv) {
+                alert('Por favor, preencha seu nome e área de interesse.');
+                return;
+            }
+
+            let texto = `Olá, Dra. Nicole! Meu nome é *${nome}*.`;
+            if (tel) texto += ` Meu WhatsApp: ${tel}.`;
+            texto += ` Gostaria de agendar uma avaliação sobre *${serv}*.`;
+            if (msg) texto += ` ${msg}`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${fone}&text=${encodeURIComponent(texto)}`, '_blank');
+        });
+    </script>
+</body>
+</html>
