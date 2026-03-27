@@ -664,12 +664,13 @@
         /* ─── RESPONSIVO ─── */
         @media (max-width: 900px) {
             #hero { grid-template-columns: 1fr; min-height: auto; }
-            .hero-texto { padding: 60px 5%; order: 2; text-align: center; }
+            .hero-texto { padding: 50px 5%; order: 2; text-align: center; }
             .hero-texto p { max-width: 100%; }
             .hero-acoes { justify-content: center; }
             .hero-stats { justify-content: center; }
-            .hero-imagem { height: 55vw; order: 1; }
+            .hero-imagem { height: 70vw; max-height: 420px; order: 1; }
             .hero-imagem::before { display: none; }
+            .hero-imagem img { object-position: top center; }
 
             .sobre-container { grid-template-columns: 1fr; gap: 40px; }
             .sobre-img-box img { height: 400px; }
@@ -687,6 +688,15 @@
         @media (max-width: 600px) {
             .nav-wpp { display: none; }
             .hero-stats { gap: 20px; }
+            .hero-imagem {
+                height: auto;
+                max-height: none;
+                aspect-ratio: 3 / 4;
+            }
+            .hero-imagem img {
+                object-position: top center;
+                height: 100%;
+            }
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { text-align: center; flex-direction: column; }
         }
