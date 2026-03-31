@@ -9,6 +9,29 @@
     <meta property="og:description" content="Atendimento especializado em Fisioterapia Pélvica em Capão da Canoa.">
     <title>Dra. Nicole Novaski | Fisioterapia Pélvica</title>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalBusiness",
+      "name": "Dra. Nicole Novaski — Fisioterapia Pélvica",
+      "description": "Fisioterapia Pélvica em Capão da Canoa. Atendimento especializado e humanizado para homens e mulheres. CREFITO 343131-F.",
+      "telephone": "+5551992147315",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Capão da Canoa",
+        "addressRegion": "RS",
+        "addressCountry": "BR"
+      },
+      "medicalSpecialty": "PhysicalTherapy",
+      "employee": {
+        "@type": "Person",
+        "name": "Nicole Novaski",
+        "jobTitle": "Fisioterapeuta Pélvica",
+        "identifier": "CREFITO 343131-F"
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
@@ -700,6 +723,169 @@
             .footer-grid { grid-template-columns: 1fr; }
             .footer-bottom { text-align: center; flex-direction: column; }
         }
+
+        /* ─── NAV LINKS ─── */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--texto-suave);
+            text-decoration: none;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 2px;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px; left: 0; right: 0;
+            height: 1.5px;
+            background: var(--destaque);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+        .nav-links a:hover { color: var(--primaria); }
+        .nav-links a:hover::after { transform: scaleX(1); }
+
+        header.scrolled {
+            background: rgba(246,243,234,0.96);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 1px 0 rgba(89,113,99,0.12), 0 8px 32px rgba(74,99,85,0.1);
+        }
+
+        @media (max-width: 900px) {
+            .nav-links { display: none; }
+        }
+
+        /* ─── SVG ÍCONES ─── */
+        .diferencial-icon svg { display: block; }
+        .card-icon svg { display: block; margin-bottom: 20px; }
+        .formacao-icon svg { display: block; }
+        .contato-item-icon svg { display: block; }
+
+        /* ─── DEPOIMENTOS ─── */
+        #depoimentos {
+            padding: 110px 5%;
+            background: var(--branco);
+        }
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 60px auto 0;
+        }
+        .depoimento-card {
+            background: var(--fundo);
+            border-radius: var(--radius);
+            padding: 36px 32px;
+            border: 1px solid rgba(89,113,99,0.08);
+            position: relative;
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+        }
+        .depoimento-card:hover {
+            box-shadow: 0 12px 40px rgba(74,99,85,0.1);
+        }
+        .depoimento-card::before {
+            content: '\201C';
+            position: absolute;
+            top: 10px; right: 20px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 7rem;
+            color: rgba(143,168,144,0.15);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .depo-estrelas {
+            color: #c8974a;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            margin-bottom: 16px;
+        }
+        .depo-texto {
+            color: var(--texto);
+            font-size: 0.93rem;
+            line-height: 1.78;
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 1;
+        }
+        .depo-autor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(89,113,99,0.1);
+        }
+        .depo-iniciais {
+            width: 40px; height: 40px;
+            background: var(--primaria);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+            letter-spacing: 0.05em;
+        }
+        .depo-autor strong {
+            display: block;
+            font-size: 0.86rem;
+            color: var(--texto);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+        }
+        .depo-autor span {
+            font-size: 0.75rem;
+            color: var(--texto-suave);
+        }
+
+        /* ─── TOAST ─── */
+        .toast {
+            position: fixed;
+            bottom: 100px; right: 28px;
+            background: var(--primaria-escura);
+            color: white;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 0.86rem;
+            font-weight: 500;
+            z-index: 3000;
+            transform: translateY(16px);
+            opacity: 0;
+            transition: all 0.35s ease;
+            pointer-events: none;
+            max-width: 300px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+        }
+        .toast.show { transform: translateY(0); opacity: 1; }
+
+        /* ─── FOOTER SOCIAL ─── */
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .social-link {
+            width: 36px; height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: rgba(255,255,255,0.6);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .social-link:hover {
+            background: rgba(255,255,255,0.16);
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -707,10 +893,12 @@
     <!-- HEADER -->
     <header>
         <div class="logo">NICOLE<span>NOVASKI</span></div>
-        <div class="header-info">
-            <p class="crefito">CREFITO 343131-F</p>
-            <p class="especialidade">Fisioterapia Pélvica</p>
-        </div>
+        <nav class="nav-links" aria-label="Navegação principal">
+            <a href="#sobre">Sobre</a>
+            <a href="#servicos">Serviços</a>
+<a href="#faq">Dúvidas</a>
+            <a href="#contato">Contato</a>
+        </nav>
         <a href="https://wa.me/5551992147315" class="nav-wpp" target="_blank" rel="noopener">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             WhatsApp
@@ -725,7 +913,8 @@
             <p>Atendimento especializado e humanizado em Fisioterapia Pélvica, focado na sua qualidade de vida e bem-estar.</p>
             <div class="hero-acoes">
                 <button class="btn-principal" onclick="scrollToId('contato')">
-                    📅 Agendar Avaliação
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Agendar Avaliação
                 </button>
                 <a href="#sobre" class="btn-secundario">Saiba mais →</a>
             </div>
@@ -739,8 +928,8 @@
                     <div class="stat-label">Especializações clínicas</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-num">↑</div>
-                    <div class="stat-label">Qualidade de vida</div>
+                    <div class="stat-num" style="font-size:1.3rem;letter-spacing:0.04em;">CREFITO</div>
+                    <div class="stat-label">343131-F · Registrada</div>
                 </div>
             </div>
         </div>
@@ -753,28 +942,28 @@
     <section id="diferenciais">
         <div class="diferenciais-grid">
             <div class="diferencial-item">
-                <div class="diferencial-icon">🎯</div>
+                <div class="diferencial-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
                 <div class="diferencial-texto">
                     <strong>Tratamento Personalizado</strong>
                     <span>Protocolo exclusivo para cada paciente</span>
                 </div>
             </div>
             <div class="diferencial-item">
-                <div class="diferencial-icon">🤝</div>
+                <div class="diferencial-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
                 <div class="diferencial-texto">
                     <strong>Ambiente Acolhedor</strong>
                     <span>Espaço seguro e sem julgamentos</span>
                 </div>
             </div>
             <div class="diferencial-item">
-                <div class="diferencial-icon">📍</div>
+                <div class="diferencial-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                 <div class="diferencial-texto">
                     <strong>Capão da Canoa</strong>
                     <span>Atendimento presencial no litoral gaúcho</span>
                 </div>
             </div>
             <div class="diferencial-item">
-                <div class="diferencial-icon">✅</div>
+                <div class="diferencial-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.85)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                 <div class="diferencial-texto">
                     <strong>Especialista Certificada</strong>
                     <span>Formação específica em saúde pélvica</span>
@@ -787,7 +976,7 @@
     <section id="sobre" class="revelar">
         <div class="sobre-container">
             <div class="sobre-img-box">
-                <img src="nic.jpg" alt="Dra. Nicole Novaski">
+                <img src="nic.jpg" alt="Dra. Nicole Novaski" loading="lazy">
             </div>
             <div class="sobre-texto">
                 <span class="secao-tag">Quem sou eu</span>
@@ -797,21 +986,21 @@
                 <p>Acredito que cada pessoa merece um cuidado individualizado, baseado em evidências científicas e entregue com empatia. Meu objetivo é devolver qualidade de vida e confiança para meus pacientes.</p>
                 <div class="formacoes">
                     <div class="formacao-item">
-                        <div class="formacao-icon">🎓</div>
+                        <div class="formacao-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primaria)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
                         <div class="formacao-texto">
                             <strong>Graduação em Fisioterapia</strong>
                             <span>Formação em Fisioterapia com foco em saúde pélvica</span>
                         </div>
                     </div>
                     <div class="formacao-item">
-                        <div class="formacao-icon">🔬</div>
+                        <div class="formacao-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--destaque)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
                         <div class="formacao-texto">
                             <strong>Especialização em Fisioterapia Pélvica</strong>
                             <span>Disfunções do assoalho pélvico masculino e feminino</span>
                         </div>
                     </div>
                     <div class="formacao-item">
-                        <div class="formacao-icon">📍</div>
+                        <div class="formacao-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--secundaria)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                         <div class="formacao-texto">
                             <strong>Atendimento em Capão da Canoa · RS</strong>
                             <span>Presencial, com hora marcada</span>
@@ -831,7 +1020,7 @@
         </div>
         <div class="servicos-grid">
             <div class="card-servico" onclick="preencherServico('Saúde Feminina')">
-                <div class="card-icon">🌸</div>
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--destaque)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="5"/><line x1="12" y1="13" x2="12" y2="21"/><line x1="9" y1="18" x2="15" y2="18"/></svg></div>
                 <h3>Saúde Feminina</h3>
                 <p>Cuidado especializado em todas as fases da vida da mulher, da gestação ao climatério.</p>
                 <ul class="card-lista">
@@ -844,7 +1033,7 @@
                 <div class="card-cta">Agendar →</div>
             </div>
             <div class="card-servico" onclick="preencherServico('Saúde Masculina')">
-                <div class="card-icon">🛡️</div>
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--primaria)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
                 <h3>Saúde Masculina</h3>
                 <p>Suporte especializado para disfunções pélvicas masculinas, com abordagem acolhedora.</p>
                 <ul class="card-lista">
@@ -857,7 +1046,7 @@
                 <div class="card-cta">Agendar →</div>
             </div>
             <div class="card-servico" onclick="preencherServico('Prevenção e Fortalecimento')">
-                <div class="card-icon">✨</div>
+                <div class="card-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--secundaria)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
                 <h3>Prevenção & Fortalecimento</h3>
                 <p>Exercícios e orientações para fortalecer o assoalho pélvico e prevenir disfunções.</p>
                 <ul class="card-lista">
@@ -916,21 +1105,21 @@
                 <p>Preencha o formulário ao lado e entraremos em contato pelo WhatsApp para confirmar o horário da sua avaliação inicial.</p>
                 <div class="contato-detalhes">
                     <div class="contato-item">
-                        <div class="contato-item-icon">📱</div>
+                        <div class="contato-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primaria)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.27 6.27l.94-.94a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
                         <div class="contato-item-texto">
                             <strong>WhatsApp</strong>
                             <span>(51) 99214-7315</span>
                         </div>
                     </div>
                     <div class="contato-item">
-                        <div class="contato-item-icon">📍</div>
+                        <div class="contato-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primaria)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
                         <div class="contato-item-texto">
                             <strong>Localização</strong>
                             <span>Capão da Canoa · RS</span>
                         </div>
                     </div>
                     <div class="contato-item">
-                        <div class="contato-item-icon">⏰</div>
+                        <div class="contato-item-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primaria)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
                         <div class="contato-item-texto">
                             <strong>Atendimento</strong>
                             <span>Com hora marcada</span>
@@ -942,15 +1131,15 @@
                 <h3>Agendar Consulta</h3>
                 <form id="wppForm">
                     <div class="form-grupo">
-                        <label>Nome completo</label>
+                        <label for="nome">Nome completo</label>
                         <input type="text" id="nome" placeholder="Seu nome" required>
                     </div>
                     <div class="form-grupo">
-                        <label>WhatsApp</label>
+                        <label for="telefone">WhatsApp</label>
                         <input type="tel" id="telefone" placeholder="(51) 99999-9999">
                     </div>
                     <div class="form-grupo">
-                        <label>Área de interesse</label>
+                        <label for="servico">Área de interesse</label>
                         <select id="servico" required>
                             <option value="" disabled selected>Selecione</option>
                             <option value="Saúde Feminina">Fisioterapia Pélvica Feminina</option>
@@ -959,7 +1148,7 @@
                         </select>
                     </div>
                     <div class="form-grupo">
-                        <label>Mensagem (opcional)</label>
+                        <label for="mensagem">Mensagem (opcional)</label>
                         <textarea id="mensagem" placeholder="Conte um pouco sobre sua queixa principal..."></textarea>
                     </div>
                     <button type="submit" class="btn-wpp">
@@ -998,7 +1187,7 @@
         </div>
         <div class="footer-bottom">
             <p>© 2025 Dra. Nicole Novaski · CREFITO 343131-F · Capão da Canoa - RS</p>
-            <p>Desenvolvido com 💚</p>
+            <p style="color:rgba(255,255,255,0.35);font-size:0.75rem;">Fisioterapia Pélvica · Atendimento Especializado</p>
         </div>
     </footer>
 
@@ -1008,6 +1197,20 @@
     </a>
 
     <script>
+        // Toast de notificação
+        function showToast(msg) {
+            let t = document.getElementById('_toast');
+            if (!t) {
+                t = document.createElement('div');
+                t.id = '_toast';
+                t.className = 'toast';
+                document.body.appendChild(t);
+            }
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3800);
+        }
+
         // Scroll suave para seções
         function scrollToId(id) {
             document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
@@ -1018,6 +1221,11 @@
             document.getElementById('servico').value = servico;
             scrollToId('contato');
         }
+
+        // Efeito de scroll no header
+        window.addEventListener('scroll', function() {
+            document.querySelector('header').classList.toggle('scrolled', window.scrollY > 50);
+        }, { passive: true });
 
         // Animação de reveal no scroll
         function reveal() {
@@ -1039,7 +1247,7 @@
             const msg = document.getElementById('mensagem').value.trim();
 
             if (!nome || !serv) {
-                alert('Por favor, preencha seu nome e área de interesse.');
+                showToast('Por favor, preencha seu nome e área de interesse.');
                 return;
             }
 
